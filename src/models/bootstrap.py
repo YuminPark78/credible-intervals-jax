@@ -12,7 +12,7 @@ def bayesian_bootstrap_mean(data):
 
     # Step 2: Order the numbers such that u_1 < u_2 < ... < u_{n-1}
     u_sorted = jnp.sort(u)
-    u_with_bounds = jnp.concatenate([jnp.array[0.0], u_sorted, jnp.array[1.0]])
+    u_with_bounds = jnp.concatenate([jnp.array([0.0]), u_sorted, jnp.array([1.0])])
 
     # Step 3: The weight w_i assigned to x_i is the difference u_i - u_{i-1}
     w = numpyro.deterministic("w", jnp.diff(u_with_bounds))
@@ -33,14 +33,14 @@ def bayesian_bootstrap_trimmed(data, trim_prop=0.20):
     
     # Step 3: Order the numbers such that u_1 < u_2 < ... < u_{n-1}
     u_sorted = jnp.sort(u)
-    u_with_bounds = jnp.concatenate([jnp.array[0.0], u_sorted, jnp.array[1.0]])
+    u_with_bounds = jnp.concatenate([jnp.array([0.0]), u_sorted, jnp.array([1.0])])
 
     # Step 4: The weight w_i assigned to x_i is the difference u_i - u_{i-1}
     w = numpyro.deterministic("w", jnp.diff(u_with_bounds))
 
     # Step 5: Calculate the cumulative probability mass
     cum_w = jnp.cumsum(w)
-    cum_w_prev = jnp.concatenate([jnp.array([0,0]), cum_w[:-1]])
+    cum_w_prev = jnp.concatenate([jnp.array([0.0]), cum_w[:-1]])
 
     # Step 6: Clip the mass to the trimming boundaries
     lower_bound = trim_prop
