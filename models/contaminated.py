@@ -2,7 +2,7 @@ import numpyro
 import numpyro.distributions as dist
 import jax.numpy as jnp
 
-def contaminated_normal_model(data=None):
+def contaminated_normal_model(data):
 
     # Priors (matching the paper)
     mu = numpyro.sample("mu", dist.Normal(0, 100))

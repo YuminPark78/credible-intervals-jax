@@ -2,8 +2,8 @@ import numpyro
 import numpyro.distributions as dist
 import jax.numpy as jnp
 
-def student_t_model(data=None):
-    
+def student_t_model(data):
+
     # Priors (matching the paper)
     mu = numpyro.sample("mu", dist.Normal(0, 100))
     precision = numpyro.sample("precision", dist.Gamma(0.0001, 0.0001))
