@@ -40,20 +40,14 @@ credible-intervals-jax/
 │   ├── generate_simulation_data.py # Generates batched simulation datasets
 │   ├── toy_dataset.npy             # Pre-generated toy data: [-2, -1, 0, 1, 2, 15]
 │   ├── sim_*.npy                   # Pre-generated simulation datasets (gitignored)
-│   ├── simulation_results.csv      # Aggregated simulation results
-│   └── img/                        # Reproduced figures (PNG)
-│       ├── Figure_3.png
-│       ├── Figure_4.png
-│       ├── Figure_5.png
-│       ├── Figure_7.png
-│       └── Figure_8.png
+│   └── simulation_results.csv      # Aggregated simulation results
 │
-├── notebooks/
-│   ├── 01_toy_data_violins.ipynb   # Experiment 1: Violin plots (Figure 3)
-│   ├── 02_toy_data_plots.ipynb     # Experiment 2: Outlier extremity & sample size (Figures 4, 5)
-│   └── 03_sim_data_plots.ipynb     # Experiment 3: Large-scale simulation study (Figures 7, 8)
-│
-└── test_vmap_mcmc.py               # Exploratory test for JAX vmap over MCMC
+└── notebooks/
+    ├── 01_toy_data_violins.ipynb   # Experiment 1: Violin plots (Figure 3)
+    ├── 02_toy_data_plots.ipynb     # Experiment 2: Outlier extremity & sample size (Figures 4, 5)
+    └── 03_sim_data_plots.ipynb     # Experiment 3: Large-scale simulation study (Figures 7, 8)
+
+
 ```
 
 ## Models
